@@ -1,0 +1,57 @@
+body {
+    margin: 30px;
+    background-color: black;
+}
+
+h1 {
+    font-size: 72px;
+    font-family: sans-serif;
+}
+
+#board {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+}
+
+.turn {
+    text-align:center;
+    font-size: 40px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bold;
+}
+#board > span {
+    padding: 10px;
+    background-color: black;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 60px;
+    color: black;
+    font-weight: bold;
+    border-color: white;
+    border-width: 2px;
+}
+
+span {
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    line-height: 2em;
+    border-top: 0.01em solid #333;
+    border-left: 0.01em solid #333;
+}
+
+.reset {
+    background-color: lightseagreen;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
