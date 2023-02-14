@@ -28,11 +28,11 @@ init();
 
 //* Event Listeners *//
 function init() {
-for (let i = 0; i < squares.length; i++) {
-    squares[i].addEventListener("click", handleSqClick);
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].addEventListener("click", handleSqClick);
     };
-
-resetBtn.addEventListener("click", handleResetClick);
+    resetBtn.addEventListener("click", handleResetClick);
+    prepareForGame(); 
 };
 
 
@@ -43,10 +43,18 @@ function handleSqClick(e) {
     if (board[clicked.id] !== "" || gameStatus !== "") {
         return;
     };
+
+    if (playerTurn === 1) {
+        clicked.style.backgroundColor = colors[playerTurn];
+        clicked.innerText = "✖";
+    } else if (playerTurn === -1) {
+        clicked.style.backgroundColor = colors[playerTurn]; 
+        clicked.innerText = "O";
+    };
     board[parseInt(clicked.id)] = playerTurn;
     tieSum += 1; //Positioned before checkWinner to ensure that tieSum=9 is fed into checkWinner.
     checkWinner();
-    renderAll();
+    renderMessage();
     playerTurn *= -1; //Positioned after checkWinner to ensure that the player's turn is not changed away from the winner's turn.
     
 };
@@ -54,7 +62,7 @@ function handleSqClick(e) {
 function handleResetClick(e) {
     e.preventDefault();
     reset();
-    renderAll();
+    prepareForGame();
 }
 
 function checkWinner() {
@@ -94,12 +102,7 @@ function renderBoard() {
     for (let i=0;i<squares.length;i++) {
         let colorIndex = board[i];
         squares[i].style.backgroundColor = colors[colorIndex];
-        console.log(colors["-1"], squares[i].style.backgroundColor);
-        if (squares[i].style.backgroundColor === colors["-1"]) {
-            squares[i].innerText = "✖";
-        } else if (squares[i].style.backgroundColor === colors["1"]) {
-            squares[i].innerText = "O";
-        }
+        //console.log(colors["-1"], squares[i].style.backgroundColor);
     };
 };
 
@@ -116,7 +119,7 @@ function renderMessage() {
         colorTurn.innerText = "It is a tie."
     } else {
         if (playerTurn === -1) {
-            colorTurn.innerText = `Congratulations Player ${playerTurn}!`;
+            colorTurn.innerText = `Congratulations Player 2!`;
             colorTurn.style.color = colors[gameStatus];
         }
         colorTurn.innerText = `Congratulations Player ${playerTurn}!`;
@@ -124,7 +127,7 @@ function renderMessage() {
     }
 };
 
-function renderAll() {
+function prepareForGame() {
     renderBoard();
     renderMessage();
 };
