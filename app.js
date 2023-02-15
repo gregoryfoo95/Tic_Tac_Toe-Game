@@ -121,9 +121,10 @@ function renderMessage() {
         if (playerTurn === 1) { //opposite playerTurn to determine winner due to sequencing in handleSqClick
             colorTurn.innerText = `Congratulations Player 2!`;
             colorTurn.style.color = colors[gameStatus];
-        }
-        colorTurn.innerText = `Congratulations Player 1!`;
-        colorTurn.style.color = colors[gameStatus];
+        } else {
+            colorTurn.innerText = `Congratulations Player 1!`;
+            colorTurn.style.color = colors[gameStatus];
+        };
     }
 };
 
