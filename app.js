@@ -102,6 +102,7 @@ function renderBoard() {
     for (let i=0;i<squares.length;i++) {
         let colorIndex = board[i];
         squares[i].style.backgroundColor = colors[colorIndex];
+        squares[i].innerText = "";
         //console.log(colors["-1"], squares[i].style.backgroundColor);
     };
 };
