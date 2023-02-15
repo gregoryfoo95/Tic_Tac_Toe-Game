@@ -122,7 +122,7 @@ function renderMessage() {
             colorTurn.innerText = `Congratulations Player 2!`;
             colorTurn.style.color = colors[gameStatus];
         }
-        colorTurn.innerText = `Congratulations Player ${playerTurn}!`;
+        colorTurn.innerText = `Congratulations Player 1!`;
         colorTurn.style.color = colors[gameStatus];
     }
 };
