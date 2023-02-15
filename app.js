@@ -118,7 +118,7 @@ function renderMessage() {
     } else if (gameStatus === "T") {
         colorTurn.innerText = "It is a tie."
     } else {
-        if (playerTurn === -1) {
+        if (playerTurn === 1) { //opposite playerTurn to determine winner due to sequencing in handleSqClick
             colorTurn.innerText = `Congratulations Player 2!`;
             colorTurn.style.color = colors[gameStatus];
         }
