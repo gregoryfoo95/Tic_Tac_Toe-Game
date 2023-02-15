@@ -53,10 +53,9 @@ function handleSqClick(e) {
     };
     board[parseInt(clicked.id)] = playerTurn;
     tieSum += 1; //Positioned before checkWinner to ensure that tieSum=9 is fed into checkWinner.
-    renderMessage();
     checkWinner();
     playerTurn *= -1; //Positioned after checkWinner to ensure that the player's turn is not changed away from the winner's turn.
-    
+    renderMessage();
 };
 
 function handleResetClick(e) {
